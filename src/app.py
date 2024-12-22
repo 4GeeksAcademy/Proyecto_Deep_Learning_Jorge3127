@@ -1,6 +1,7 @@
 # coloco el còdigo
 from flask import Flask, request, render_template
 from pickle import load
+import os
 
 from flask import Flask, request, render_template
 from pickle import load
@@ -8,7 +9,15 @@ from pickle import load
 app = Flask(__name__)
 
 # Cargar el modelo
-model = load(open("/workspaces/Proyecto_Deep_Learning_Jorge3127/models/modelo_adaboost_optimizado.pkl", "rb"))
+model_path = "/workspaces/Proyecto_Deep_Learning_Jorge3127/models/modelo_adaboost_optimizado.pkl"
+
+# Verificar la existencia del archivo
+if not os.path.exists(model_path):
+    raise FileNotFoundError(f"El archivo {model_path} no existe")
+
+# Cargar el modelo
+with open(model_path, "rb") as f:
+    model = load(f)
 
 # Diccionario de clases
 class_dict = {
