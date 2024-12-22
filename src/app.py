@@ -8,7 +8,7 @@ from pickle import load
 app = Flask(__name__)
 
 # Cargar el modelo
-model = load(open("https://github.com/4GeeksAcademy/Proyecto_Deep_Learning_Jorge3127/blob/main/models/modelo_adaboost_optimizado.pkl", "rb"))
+model = load(open("/workspaces/Proyecto_Deep_Learning_Jorge3127/models/modelo_adaboost_optimizado.pkl", "rb"))
 
 # Diccionario de clases
 class_dict = {
